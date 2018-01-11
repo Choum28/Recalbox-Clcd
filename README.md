@@ -104,20 +104,22 @@ mount -o remount, rw /
         recalbox_clcd.py 
         recalbox_clcd_off.py
         I2C_LCD_driver.py
-        lcdScroll.py 
+        lcdScroll.py
+        recalbox_clcd.lang
     to **/recalbox/scripts** folder with winscp for example
 
 * Copy 
         S97LCDInfoText 
     to **/etc/init.d/**
     
-* then give execute right on all file
+* then give execute right on all files
 
 ```
 Chmod +x /recalbox/scripts/recalbox_clcd_off.py
 Chmod +x /recalbox/scripts/recalbox_clcd_off.py
 Chmod +x /recalbox/scripts/I2C_LCD_driver.py
 Chmod +x /recalbox/scripts/lcdScroll.py
+chmod +x /recalbox/scripts/recalbox_clcd.lang
 Chmod +x /etc/init.d/S97LCDInfoText
 ```
 
