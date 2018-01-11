@@ -105,6 +105,7 @@ mount -o remount, rw /
         recalbox_clcd.py
         recalbox_clcd.lang 
         recalbox_clcd_off.py
+        recalbox_clcd.lang
         I2C_LCD_driver.py
         lcdScroll.py 
     dans le dossier **/recalbox/scripts** avec un logiciel comme winscp par exemple
@@ -120,6 +121,7 @@ Chmod +x /recalbox/scripts/recalbox_clcd_off.py
 Chmod +x /recalbox/scripts/recalbox_clcd.py
 Chmod +x /recalbox/scripts/I2C_LCD_driver.py
 Chmod +x /recalbox/scripts/lcdScroll.py
+chmod +x /recalbox/scripts/recalbox_clcd.lang
 Chmod +x /etc/init.d/S97LCDInfoText
 ```
 
