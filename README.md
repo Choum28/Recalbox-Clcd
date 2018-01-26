@@ -47,7 +47,7 @@ Connection of the I2c to a raspberry pi 3
 
 * connect in ssh to your recalbox and mount partition to rw mode 
 ```
-mount -o remount, rw /
+mount -o remount,rw /
 ```
 
 * Edit /etc/modules.conf
@@ -97,7 +97,7 @@ In our example the I2C adress is 0x27
 
 * connect in ssh to your recalbox and mount partition to rw mode 
 ```
-mount -o remount, rw /
+mount -o remount,rw /
 ```
 
 * Copy 
@@ -115,12 +115,12 @@ mount -o remount, rw /
 * then give execute right on all files
 
 ```
-Chmod +x /recalbox/scripts/recalbox_clcd_off.py
-Chmod +x /recalbox/scripts/recalbox_clcd_off.py
-Chmod +x /recalbox/scripts/I2C_LCD_driver.py
-Chmod +x /recalbox/scripts/lcdScroll.py
+chmod +x /recalbox/scripts/recalbox_clcd_off.py
+chmod +x /recalbox/scripts/recalbox_clcd_off.py
+chmod +x /recalbox/scripts/I2C_LCD_driver.py
+chmod +x /recalbox/scripts/lcdScroll.py
 chmod +x /recalbox/scripts/recalbox_clcd.lang
-Chmod +x /etc/init.d/S97LCDInfoText
+chmod +x /etc/init.d/S97LCDInfoText
 ```
 
 * edit line #22 in I2C_LCD_driver.py in /recalbox/scripts with the correct I2C adress, you have recover before (in our example :0x27).
