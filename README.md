@@ -115,7 +115,7 @@ mount -o remount,rw /
 * then give execute right on all files
 
 ```
-chmod +x /recalbox/scripts/recalbox_clcd_off.py
+chmod +x /recalbox/scripts/recalbox_clcd.py
 chmod +x /recalbox/scripts/recalbox_clcd_off.py
 chmod +x /recalbox/scripts/I2C_LCD_driver.py
 chmod +x /recalbox/scripts/lcdScroll.py
