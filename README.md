@@ -75,7 +75,7 @@ bcm2708.vc_i2c_override=1
 
 
 #### Check I2C address 
-You should check your I2C address of 16x2 CLCD as this device can have different adress.
+You should check your I2C address of 16x2 CLCD as this device can have different address.
 Those are two address each other normally => 0x27 or 0x3f.
 
 Execute the following command (could take some time to complete)
