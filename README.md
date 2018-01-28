@@ -48,6 +48,7 @@ Connection of the I2c to a raspberry pi 3
 * connect in ssh to your recalbox and mount partition to rw mode 
 ```
 mount -o remount,rw /
+mount -o remount,rw /boot
 ```
 
 * Edit /etc/modules.conf
