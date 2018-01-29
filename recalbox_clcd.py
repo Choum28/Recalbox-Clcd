@@ -74,12 +74,12 @@ def set_language(lang):
     """set locale and find matching translation texts from input language or return English texts"""
     translation = []
     text = ""
-    with open("/recalbox/scripts/recalbox_clcd.lang", 'r') as fic:
+    with open("/recalbox/scripts/clcd/recalbox_clcd.lang", 'r') as fic:
         for line in fic:
             if lang in line:
                 text = str(line)
     if text == "": # language code not found in translation, take English
-        with open("/recalbox/scripts/recalbox_clcd.lang", 'r') as fic:
+        with open("/recalbox/scripts/clcd/recalbox_clcd.lang", 'r') as fic:
             for line in fic:
                 if "en_GB" in line:
                     text = str(line)
@@ -213,8 +213,8 @@ TXT = set_language(TXT)
 # systems list
 SYSTEMMAP = {
     # Nintendo (Super Famicon, Famicon (Japan)
-    "snes":TXT[21], "nes":TXT[22], "n64":"Nintendo 64", "gba":"GameBoy Advance", "gb":"GameBoy",\
-    "gbc":"GameBoy Color", "fds":"Famicom Disk System", "virtualboy":"Virtual Boy",\
+    "SNES":TXT[21], "NES":TXT[22], "n64":"Nintendo 64", "gba":"Game Boy Advance", "gb":"Game Boy",\
+    "gbc":"Game Boy Color", "fds":"Famicom Disk System", "virtualboy":"Virtual Boy",\
     "gamecube":"GameCube", "wii":"Wii",
     #Sega (Master System, Mega Drive, 32X, Mega cd)
     "sg1000":"SG-1000", "mastersystem":TXT[15], "megadrive":TXT[16], "gamegear":"Game Gear",\
