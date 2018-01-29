@@ -30,7 +30,7 @@ class Scroller(object):
         lines : list / string : Default empty list : If a list is passed in, each 
             entry in the list is a  string that should be displayed on the LCD, 
             one line after the next.  If a string, it will be split by any embedded 
-            linefeed \n characers into a list of multiple lines . 
+            linefeed \n characters into a list of multiple lines. 
             Ultimately, the number of entries in this list must be equal to or 
             less than the height argument.
         space : string : Default " :: " : If a given line is longer than the width
@@ -85,4 +85,4 @@ class Scroller(object):
                 shift = "%s%s"%(ln[1:], ln[0])
                 self.lines[i] = shift
         truncated = [ln[:self.width] for ln in self.lines]
-        return "\n".join(truncated)         
+        return "\n".join(truncated)

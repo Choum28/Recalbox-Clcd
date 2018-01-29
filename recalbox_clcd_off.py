@@ -12,7 +12,7 @@ I2C_LCD_driver developed by: Denis Pleic https://gist.github.com/DenisFromHR/cc8
 #Notice:
 recalbox_clcd_off.py require I2C_LCD_driver.py
 
-Small script written in Python for recalbox project (https://www.recalbox.com/)
+Small script written in Python for Recalbox project (https://www.recalbox.com/)
 running on Raspberry Pi 1,2,3
 #Features:
 Cut LCD backlight when a shutdown (STOP) is launch by the daemon S97LCDInfoText
