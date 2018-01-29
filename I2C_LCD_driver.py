@@ -19,7 +19,6 @@ Made available under GNU GENERAL PUBLIC LICENSE
 I2CBUS = 1
 
 # LCD i2c Address 0x27 or 0x3f
-#ADDRESS = 0x27
 ADDRESS = 0x3f
 
 import smbus
