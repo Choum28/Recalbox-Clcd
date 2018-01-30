@@ -47,7 +47,8 @@ Connection of the I2c to a raspberry pi 3
 
 * connect in ssh to your recalbox and mount partition to rw mode 
 ```
-mount -o remount, rw /
+mount -o remount,rw /
+mount -o remount,rw /boot
 ```
 
 * Edit /etc/modules.conf
@@ -74,7 +75,7 @@ bcm2708.vc_i2c_override=1
 
 
 #### Check I2C address 
-You should check your I2C address of 16x2 CLCD as this device can have different adress.
+You should check your I2C address of 16x2 CLCD as this device can have different address.
 Those are two address each other normally => 0x27 or 0x3f.
 
 Execute the following command (could take some time to complete)
@@ -97,7 +98,7 @@ In our example the I2C adress is 0x27
 
 * connect in ssh to your recalbox and mount partition to rw mode 
 ```
-mount -o remount, rw /
+mount -o remount,rw /
 ```
 
 * Copy 
@@ -115,12 +116,12 @@ mount -o remount, rw /
 * then give execute right on all files
 
 ```
-Chmod +x /recalbox/scripts/recalbox_clcd_off.py
-Chmod +x /recalbox/scripts/recalbox_clcd_off.py
-Chmod +x /recalbox/scripts/I2C_LCD_driver.py
-Chmod +x /recalbox/scripts/lcdScroll.py
+chmod +x /recalbox/scripts/recalbox_clcd.py
+chmod +x /recalbox/scripts/recalbox_clcd_off.py
+chmod +x /recalbox/scripts/I2C_LCD_driver.py
+chmod +x /recalbox/scripts/lcdScroll.py
 chmod +x /recalbox/scripts/recalbox_clcd.lang
-Chmod +x /etc/init.d/S97LCDInfoText
+chmod +x /etc/init.d/S97LCDInfoText
 ```
 
 * edit line #22 in I2C_LCD_driver.py in /recalbox/scripts with the correct I2C adress, you have recover before (in our example :0x27).
