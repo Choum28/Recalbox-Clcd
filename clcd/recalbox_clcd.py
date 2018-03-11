@@ -74,12 +74,12 @@ def set_language(lang):
     """set locale and find matching translation texts from input language or return English texts"""
     translation = []
     text = ""
-    with open("/recalbox/scripts/recalbox_clcd.lang", 'r') as fic:
+    with open("/recalbox/scripts/clcd/recalbox_clcd.lang", 'r') as fic:
         for line in fic:
             if lang in line:
                 text = str(line)
     if text == "": # language code not found in translation, take English
-        with open("/recalbox/scripts/recalbox_clcd.lang", 'r') as fic:
+        with open("/recalbox/scripts/clcd/recalbox_clcd.lang", 'r') as fic:
             for line in fic:
                 if "en_GB" in line:
                     text = str(line)
@@ -223,9 +223,10 @@ SYSTEMMAP = {
     "neogeo":"Neo-Geo", "mame":"MAME-libretro", "fba":"FinalBurn Alpha",\
     "fba_libretro":"FinalBurn Alpha libretro", "advancemame":"Advance MAME",\
     # Computers
-    "msx":"MSX", "msx1":"MSX1", "msx2":"MSX2", "amiga":"Amiga", "amstradcpc":"Amstrad CPC",\
+    "msx":"MSX", "msx1":"MSX1", "msx2":"MSX2", "amiga600":"Amiga 600", "amstradcpc":"Amstrad CPC",\
     "apple2":"Apple II", "atarist":"Atari ST", "zxspectrum":"ZX Spectrum", "o2em":"Odyssey 2",\
-    "zx81":"Sinclair ZX81", "dos":"MS-DOS", "c64":"Commodore 64",
+    "zx81":"Sinclair ZX81", "dos":"MS-DOS", "c64":"Commodore 64", "amiga1200":"Amiga 1200",\
+	"x68000":"Sharp X68000",\
     # Other (#PC-Engine, PC-Engine CD, Image viewer)
     "ngp":"Neo-Geo Pocket", "ngpc":"Neo-Geo Pocket Color", "gw":"Game and Watch",\
     "vectrex":"Vectrex", "lynx":"Atari Lynx", "lutro":"Lutro", "wswan":"WonderSwan",\

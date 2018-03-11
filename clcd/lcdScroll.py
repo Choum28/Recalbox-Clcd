@@ -20,7 +20,7 @@ class Scroller(object):
     Object designed to auto-scroll text on a LCD screen.  Every time the scroll()
     method is called to, it will scroll the text from right to left by one character
     on any line that is greater than the provided with.
-    If the lines ever need to be reset \ updated, call to the setLines() method.
+    If the lines ever need to be reset or updated, call to the setLines() method.
     """
     def __init__(self, lines=[], space = " :: ", width=16, height=2):
         """
@@ -62,7 +62,7 @@ class Scroller(object):
         elif not isinstance(lines, list):
             raise Exception("Argument passed to lines parameter must be list, instead got: %s"%type(lines))
         if len(lines) > self.height:
-            raise Exception("Have more lines to display (%s) than you have lcd rows (%s)"%(len(lines), height))            
+            raise Exception("Have more lines to display (%s) than you have lcd rows (%s)"%(len(lines), self.height))            
         self.lines = lines
         # If the line is over the width, add in the extra spaces to help separate
         # the scroll:
