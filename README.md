@@ -1,14 +1,14 @@
-# Recalbox-Clcd
+# Recalbox-CLCD
 
-Scrolling informations for Recalbox v4.x or more using 16x2 CLCD on raspberry pi.
+Scrolling informations for Recalbox v4.x or later using 16x2 CLCD on Raspberry Pi.
 
 ![ ](http://i.imgur.com/CGAyTAlm.jpg)
 
 ## About
 
 Small script written in Python for Recalbox project <http://recalbox.com/>
-running on Raspberry Pi 2,3, which displays all necessary info on a 16x2 CLCD display
-**You must scrap your rom to make this script work correctly when playing.**
+running on Raspberry Pi 2,3, which displays all necessary info on a 16x2 CLCD display.  
+**You must scrape your rom to make this script work correctly when playing.**
 
 ## Credits
 
@@ -35,13 +35,13 @@ running on Raspberry Pi 2,3, which displays all necessary info on a 16x2 CLCD di
 
 ### Prerequisites
 
-You will need an CLCD I2c like the HD44780 with rom A00 (Ascii support + japanese characters) or A02 (Ascii + European Characters)
+You will need an CLCD I2C like the HD44780 with rom A00 (Ascii support + japanese characters) or A02 (Ascii + European Characters)
 
 ![ ](http://i.imgur.com/YrDDhwUm.jpg)
 
 ### Raspberry Pi I2C GPIO Pinout
 
-Connection of the I2c to a raspberry pi 3
+Connection of the I2C to a Raspberry Pi 3
 
 ![ ](http://i.imgur.com/NKswbgr.png)
 
@@ -50,7 +50,8 @@ Connection of the I2c to a raspberry pi 3
 * connect in ssh to your recalbox and mount partition to rw mode
 
 ```shell
-mount -o remount, rw /
+mount -o remount,rw /
+mount -o remount,rw /boot
 ```
 
 * Edit /etc/modules.conf
@@ -78,11 +79,11 @@ add at **the end of line**
 bcm2708.vc_i2c_override=1
 ```
 
-* reboot your recalbox
+* reboot your Recalbox
 
 ### Check I2C address
 
-You should check your I2C address of 16x2 CLCD as this device can have different adress.
+You should check your I2C address of 16x2 CLCD as this device can have a different address.
 Those are two address each other normally => 0x27 or 0x3f.
 
 Execute the following command (could take some time to complete)
@@ -106,7 +107,7 @@ In our example the I2C adress is 0x27
 
 ### Scripts installation
 
-* connect in ssh to your recalbox and mount partition to rw mode
+* connect in ssh to your Recalbox and mount partition to rw mode
 
 ```Bash
 mount -o remount, rw /
@@ -128,7 +129,7 @@ mount -o remount, rw /
 * then give execute right on all files
 
 ```bash
-chmod +x /recalbox/scripts/clcd/recalbox_clcd_off.py
+chmod +x /recalbox/scripts/clcd/recalbox_clcd.py
 chmod +x /recalbox/scripts/clcd/recalbox_clcd_off.py
 chmod +x /recalbox/scripts/clcd/I2C_LCD_driver.py
 chmod +x /recalbox/scripts/clcd/lcdScroll.py
@@ -136,7 +137,7 @@ chmod +x /recalbox/scripts/clcd/recalbox_clcd.lang
 chmod +x /etc/init.d/S97LCDInfoText
 ```
 
-* edit line #22 in I2C_LCD_driver.py in /recalbox/scripts/clcd/ with the correct I2C adress, you have recover before (in our example :0x27).
+* edit line #22 in I2C_LCD_driver.py in /recalbox/scripts/clcd/ with the correct I2C address, you have recover before (in our example :0x27).
 
 ```python
 nano I2C_LCD_driver.py
@@ -145,11 +146,11 @@ nano I2C_LCD_driver.py
 ADDRESS = 0x27 # or 0x3f
 ```
 
-* reboot your recalbox, the script will now launch automatically on start, and exit and turn off LCD backlight during shutdown of your recalbox
+* reboot your Recalbox, the script will now launch automatically on start, and exit and turn off LCD backlight during shutdown of your Recalbox
 
 ## Important note
 
-To make this script work with Scummvm, they should be scrap but the path in the gamelist.xml should be a folder and not the scummvm "fake file".
+To make this script work with ScummVM, they should be scrape but the path in the gamelist.xml should be a folder and not the ScummVM "fake file".
 
 ```txt
 <path>./FT/</path>
