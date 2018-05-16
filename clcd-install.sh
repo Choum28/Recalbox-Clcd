@@ -47,8 +47,8 @@ do
 				wget -q --show-progress -N -P /recalbox/scripts/clcd/ $baseURL/I2C_LCD_driver.py && chmod u+x /recalbox/scripts/clcd/I2C_LCD_driver.py
 				wget -q --show-progress -N -P /recalbox/scripts/clcd/ $baseURL/lcdScroll.py && chmod u+x /recalbox/scripts/clcd/lcdScroll.py
 				wget -q --show-progress -N -P /recalbox/scripts/clcd/ $baseURL/recalbox_clcd.lang && chmod u+x /recalbox/scripts/clcd/recalbox_clcd.lang
-				wget -q --show-progress -N -P /recalbox/scripts/clcd/ $baseURL/recalbox_clcd.py && chmod u+x /recalbox/scripts/clcd//recalbox_clcd.py
-				wget -q --show-progress -N -P /recalbox/scripts/clcd/ $baseURL/recalbox_clcd_off.py && chmod u+x /recalbox/scripts/clcd//recalbox_clcd_off.py
+				wget -q --show-progress -N -P /recalbox/scripts/clcd/ $baseURL/recalbox_clcd.py && chmod u+x /recalbox/scripts/clcd/recalbox_clcd.py
+				wget -q --show-progress -N -P /recalbox/scripts/clcd/ $baseURL/recalbox_clcd_off.py && chmod u+x /recalbox/scripts/clcd/recalbox_clcd_off.py
 				wget -q --show-progress -N -P /etc/init.d/ ${baseURL::-5}/S97LCDInfoText && chmod u+x /etc/init.d/S97LCDInfoText
 			# Add correct I2C Address
 				sed -i "s/^ADDRESS =.*/ADDRESS = $i2c_address/" /recalbox/scripts/clcd/I2C_LCD_driver.py
