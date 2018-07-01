@@ -7,7 +7,7 @@ Creation DATE: 08/27/2017
 Blog        : https://forum.recalbox.com/topic/5777/relier-%C3%A0-un-%C3%A9cran-et-afficher-du-texte
 and original work : http://rasplay.org, http://forums.rasplay.org/, https://zzeromin.tumblr.com/
 
-Thanks to    : Godhunter74 for first draft of recalbox script, zzeromin smyani, zerocool, GreatKStar
+Thanks to    : Godhunter74 for first draft of Recalbox script, zzeromin smyani, zerocool, GreatKStar
 
 Free and open for all to use. But put credit where credit is due.
 
@@ -20,13 +20,13 @@ Function run_cmd() from: AndyPi ( http://andypi.co.uk/ )
 #Notice:
 recalbox_clcd.py require I2C_LCD_driver.py, lcdScroll.py, recalbox_clcd.lang
 
-Small script written in Python 2.7 for recalbox project (https://www.recalbox.com/)
+Small script written in Python 2.7 for Recalbox project (https://www.recalbox.com/)
 running on Raspberry Pi 1,2,3, which displays all necessary info on a 16x2 LCD display
 #Features:
 1. Current DATE and time, IP address
 2. CPU temperature and speed
-3. Emulation and ROM information extract from gamelist
-!!!!!!!!!!     YOU MUST SCRAPP YOUR ROMS to see roms infos        !!!!!!!!!!!!!
+3. Emulation and ROM information extracted from gamelists
+!!!!!!!!!!     YOU MUST SCRAPE YOUR ROMS to see roms infos        !!!!!!!!!!!!!
 
 # Note display accented characters & language
 By default this script has French message and will remove all accented characters (éèà will be eea)
@@ -36,8 +36,8 @@ If you have a model HD44780A02 (support ASCII + european fonts), and want to dis
 characters, you will have to comment and uncomment some line in the script.
 Search 'HD44780A02' comment in the script.
 
-This script support multiple recalbox language, exept those with non European characters
-Like Chinese, Russian, Greek, Japanese(has specific English text due to console name difference)
+This script support multiple Recalbox language, except those with non European characters
+Like Chinese, Russian, Greek, Japanese (has specific English text due to console name difference)
 If language is unsupported, display will be in English with European console name
 """
 import os
@@ -148,7 +148,7 @@ def get_info_gamelist(path_gamelist, systeme):
     List[index] description\n
     [0]name       [1]description    [2]image_path    [3]rating    [4]release date (year)\r
     [5]developer       [6]publisher     [7]genre,       [8]players number  [9] system\n
-    return Unknow for missing section, return scrap message if unscrap rom found"""
+    return Unknown for missing section, return scrape message if unscraped rom found"""
     path_gamelist = string.replace(path_gamelist, '&', '&amp;')
     fic = open("/recalbox/share/roms/"+systeme+"/gamelist.xml", 'r') # Open file
     buf = fic.read()  # Read file into var
@@ -180,8 +180,8 @@ def get_info_gamelist(path_gamelist, systeme):
     return tableau
 
 def get_ip_adr():
-    """ return IP of eth or wlan interface and add space to math 15 characters lenght,
-    return String Hors-ligne if not connected"""
+    """ return IP of eth or wlan interface and add space to math 15 characters length,
+    return String Off-line if not connected"""
     # wlan ip address
     ipaddr = run_cmd(CMD_WLAN).replace("\n", "")
     # selection if wlan or eth ip address
@@ -189,7 +189,7 @@ def get_ip_adr():
     if ipaddr == "":
         ipaddr = run_cmd(CMD_ETH).replace("\n", "")
         if ipaddr == "":
-            ipaddr = unichr(0)+unichr(1)+"  "+TXT[1] # Txt disconnect if no lan or wifi ip
+            ipaddr = unichr(0)+unichr(1)+"  "+TXT[1] # Txt disconnected if no lan or wifi ip
         else:
             if len(ipaddr) == 15:
                 ipaddr = unichr(0)+run_cmd(CMD_ETH)
@@ -210,13 +210,13 @@ def get_ip_adr():
 TXT = get_language()
 TXT = set_language(TXT)
 
-# liste des systèmes
+# system list
 SYSTEMMAP = {
     # Nintendo (Super Famicon, Famicon (Japan)
     "snes":TXT[21], "nes":TXT[22], "n64":"Nintendo 64", "gba":"GameBoy Advance", "gb":"GameBoy",\
     "gbc":"GameBoy Color", "fds":"Famicom Disk System", "virtualboy":"Virtual Boy",\
     "gamecube":"GameCube", "wii":"Wii",
-    #Sega (Master System, Mega Drive, 32X, Mega cd)
+    # Sega (Master System, Mega Drive, 32X, Mega CD)
     "sg1000":"SG-1000", "mastersystem":TXT[15], "megadrive":TXT[16], "gamegear":"Game Gear",\
     "sega32x":TXT[17], "segacd":TXT[18], "dreamcast":"Dreamcast",
     # Arcade
@@ -227,7 +227,7 @@ SYSTEMMAP = {
     "apple2":"Apple II", "atarist":"Atari ST", "zxspectrum":"ZX Spectrum", "o2em":"Odyssey 2",\
     "zx81":"Sinclair ZX81", "dos":"MS-DOS", "c64":"Commodore 64", "amiga1200":"Amiga 1200",\
 	"x68000":"Sharp X68000",\
-    # Other (#PC-Engine, PC-Engine CD, Image viewer)
+    # Other (#PC-Engine, PC-Engine CD, Image Viewer)
     "ngp":"Neo-Geo Pocket", "ngpc":"Neo-Geo Pocket Color", "gw":"Game and Watch",\
     "vectrex":"Vectrex", "lynx":"Atari Lynx", "lutro":"Lutro", "wswan":"WonderSwan",\
     "wswanc":"WonderSwan Color", "pcengine":TXT[19], "pcenginecd":TXT[20],\
@@ -318,12 +318,12 @@ while 1:
         if RESULT != "":
             (SYSTEME) = get_txt_betw(RESULT, "-system ", " -rom ", TXT[13])
             (ROM) = get_txt_betw(RESULT, "-rom ", " -emulator ", TXT[13])
-            if SYSTEME != "kodi": # Skip if kodi as it do not use gamelist and do not have rom info
+            if SYSTEME != "kodi": # Skip if Kodi as it does not use gamelist and does not have rom info
                 if OLD_ROM != ROM: # Skip search if rom is still the same.
                     OLD_ROM = ROM
                     NOM_GAMELIST = ROM.replace("/recalbox/share/roms/"+SYSTEME, ".")
                     if SYSTEME == "scummvm":
-                        # ScummVM scrap point on folder not on a file.
+                        # ScummVM scrape point on folder not on a file.
                         NOM_GAMELIST = os.path.dirname(NOM_GAMELIST)
                     # Search info in gamelist and prepare Display message for scrolling of line 2
                     ROM_INFO = get_info_gamelist(NOM_GAMELIST, SYSTEME)
