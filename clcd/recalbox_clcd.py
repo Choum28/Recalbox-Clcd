@@ -222,11 +222,12 @@ SYSTEMMAP = {
     # Arcade
     "neogeo":"Neo-Geo", "mame":"MAME-libretro", "fba":"FinalBurn Alpha",\
     "fba_libretro":"FinalBurn Alpha libretro", "advancemame":"Advance MAME",\
+    "daphne":"Daphne",
     # Computers
     "msx":"MSX", "msx1":"MSX1", "msx2":"MSX2", "amiga600":"Amiga 600", "amstradcpc":"Amstrad CPC",\
     "apple2":"Apple II", "atarist":"Atari ST", "zxspectrum":"ZX Spectrum", "o2em":"Odyssey 2",\
     "zx81":"Sinclair ZX81", "dos":"MS-DOS", "c64":"Commodore 64", "amiga1200":"Amiga 1200",\
-	"x68000":"Sharp X68000",\
+    "x68000":"Sharp X68000",\
     # Other (#PC-Engine, PC-Engine CD, Image Viewer)
     "ngp":"Neo-Geo Pocket", "ngpc":"Neo-Geo Pocket Color", "gw":"Game and Watch",\
     "vectrex":"Vectrex", "lynx":"Atari Lynx", "lutro":"Lutro", "wswan":"WonderSwan",\
@@ -234,7 +235,7 @@ SYSTEMMAP = {
     "supergrafx":"SuperGrafx", "atari2600":"Atari 2600", "atari7800":"Atari 7800",\
     "prboom":"PrBoom", "psx":"PlayStation", "cavestory":"Cave Story", "scummvm":"ScummVM",\
     "colecovision":"ColecoVision", "psp":"PSP", "kodi":"Kodi", "moonlight":"Moonlight",\
-    "imageviewer":TXT[14],
+    "thomson":"Thomson TO8","imageviewer":TXT[14],
     }
 
 #draw icons not existing in [a-z], max 8
