@@ -33,7 +33,7 @@ tournant sur raspberry, qui affichera diverses informations sur un écran lcd 16
 
 ## Installation
 
-### Prérequis
+## Prérequis
 
 recalbox en version 4.x ou supérieure.
 Un écran CLCD I2c comme le modèle Hd44780 en version A00 (support ascii + caractères japonais) ou A02 (support ascii + caractères européen)
@@ -45,6 +45,20 @@ Un écran CLCD I2c comme le modèle Hd44780 en version A00 (support ascii + cara
 Connexion de l'I2c sur un raspberry pi 3
 
 ![ ](http://i.imgur.com/NKswbgr.png)
+
+## Installation automatique avec le script clcld-install.sh
+
+* Copiez le fichier clcd-install.sh dans **/recalbox/scripts**
+* Connectez vous en ssh sur votre recalbox et exécuter le script avec la commande :
+```shell
+sh clcd_install.sh
+```
+* Suivez les instructions à l'écran pour effectuer l'installation.
+     
+Note: Il se peut que vous deviez relancer le scripts après le repmier redémarrage effectuée par le script.
+Le script propose aussi une option de désinstallation de Recalbox-clcd
+
+## Installation manuelle
 
 ### Activation de l'I2C dans recalbox
 
