@@ -31,9 +31,7 @@ running on Raspberry Pi 2,3, which displays all necessary info on a 16x2 CLCD di
 * Recalbox 18.02.09
 * 16x2 I2C HD447800 LCD (A00)
 
-## Installation
-
-### Prerequisites
+## Prerequisites
 
 You will need an CLCD I2C like the HD44780 with rom A00 (Ascii support + japanese characters) or A02 (Ascii + European Characters)
 
