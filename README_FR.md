@@ -48,14 +48,19 @@ Connexion de l'I2c sur un raspberry pi 3
 
 ## Installation automatique avec le script clcld-install.sh
 
+* Connectez vous en SSH sur votre recalbox et monter la partition en lecture-écriture.
+
+```Bash
+mount -o remount, rw /
+```
 * Copiez le fichier clcd-install.sh dans **/recalbox/scripts**
-* Connectez vous en ssh sur votre recalbox et exécuter le script avec la commande :
+* Exécuter le script avec la commande :
 ```shell
 sh clcd_install.sh
 ```
 * Suivez les instructions à l'écran pour effectuer l'installation.
      
-Note: Il se peut que vous deviez relancer le scripts après le repmier redémarrage effectuée par le script.
+Note: Il se peut que vous deviez relancer le scripts pour terminer l'installation après le redémarrage effectuée par le script (indiqué à l'écran).
 Le script propose aussi une option de désinstallation de Recalbox-clcd
 
 ## Installation manuelle
