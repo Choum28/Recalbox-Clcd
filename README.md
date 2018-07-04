@@ -45,6 +45,20 @@ Connection of the I2C to a Raspberry Pi 3
 
 ![ ](http://i.imgur.com/NKswbgr.png)
 
+## Automatic Installation with clcld-install.sh
+
+* Copy file clcd-install.sh to **/recalbox/scripts**
+* Connect in ssh to your recalbox and execute the script :
+```shell
+sh clcd_install.sh
+```
+* Follow the text on screen to proceed to the installation.
+     
+Note:  you could have to relaunch the script after the first reboot done by the script.
+The script also provide a way to uninstall Recalbox-clcd
+
+## Manual Installation
+
 ### Activate I2C inside recalbox
 
 * connect in ssh to your recalbox and mount partition to rw mode
