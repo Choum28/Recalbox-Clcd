@@ -119,6 +119,7 @@ def get_version():
     fic = open("/recalbox/recalbox.version", 'r')
     version = fic.read()  # Read file into var
     fic.close()  # Close file
+    version = version.strip() # remove \n from version
     version = version.split('-', 1)[0] # remove detailed version when unstable version
     fic = open("/recalbox/recalbox.arch", 'r')
     arch = fic.read()  # Read file into var
@@ -278,7 +279,7 @@ MYLCD.lcd_display_string(unichr(6)+"   "+unichr(2)+" "+unichr(3)+" "+unichr(4)+\
                          " "+unichr(5)+"    "+unichr(7), 2)
 sleep(5) # 5 secdelay
 MYLCD.lcd_clear()
-MYLCD.lcd_display_string("RECALBOX "+VERSION[1], 1, 1)
+MYLCD.lcd_display_string("Version "+VERSION[1], 1, 0)
 MYLCD.lcd_display_string("www.recalbox.com", 2)
 sleep(5)
 
@@ -287,11 +288,11 @@ while 1:
     SEC = 0
     while SEC < 5:
         IPADDR = get_ip_adr()
-        DATE = datetime.now().strftime('%d %b %H:%M:%S')
+        DATE = datetime.now().strftime('%d %b %H:%M')
         # Comment or delete the next line if you have an HD44780A02
         DATE = conv_ascii(DATE)
         # display Date & IP
-        MYLCD.lcd_display_string(DATE, 1, 0)
+        MYLCD.lcd_display_string(DATE, 1, 1)
         MYLCD.lcd_display_string(IPADDR, 2, 0)
         SEC = SEC + 1
         sleep(1)
