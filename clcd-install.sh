@@ -21,7 +21,6 @@ do
 				grep -q -F 'i2c-dev' /etc/modules.conf || echo 'i2c-dev' >> /etc/modules.conf
 			# Activate I2C Interface
 				grep -q -F '#Activate I2C' /boot/config.txt || echo '#Activate I2C' >> /boot/config.txt
-				grep -q -F 'dtparam=i2c1=on' /boot/config.txt || echo 'dtparam=i2c1=on' >> /boot/config.txt
 				grep -q -F 'dtparam=i2c_arm=on' /boot/config.txt || echo 'dtparam=i2c_arm=on' >> /boot/config.txt
 			# Activate I2C Bus
 				grep -q -F 'bcm2708.vc_i2c_override=1' /boot/cmdline.txt || sed -i ' 1 s/.*/& bcm2708.vc_i2c_override=1/' /boot/cmdline.txt
@@ -71,7 +70,6 @@ do
 				sed -i '/i2c-bcm2708/d' /etc/modules.conf
 				sed -i '/i2c-dev/d' /etc/modules.conf
 				sed -i '/#Activate I2C/d' /boot/config.txt
-				sed -i '/dtparam=i2c1=on/d' /boot/config.txt
 				sed -i '/dtparam=i2c_arm=on/d' /boot/config.txt
 				sed -i 's/\<bcm2708.vc_i2c_override=1\>//g' /boot/cmdline.txt
 			# Delete scripts
