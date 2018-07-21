@@ -86,7 +86,6 @@ i2c-dev
 
 ```txt
 #Activate I2C
-dtparam=i2c1=on
 dtparam=i2c_arm=on
 ```
 
