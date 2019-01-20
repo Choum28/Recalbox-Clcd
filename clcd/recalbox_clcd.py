@@ -213,30 +213,25 @@ TXT = set_language(TXT)
 
 # system list
 SYSTEMMAP = {
-    # Nintendo (Super Famicon, Famicon (Japan)
-    "snes":TXT[21], "nes":TXT[22], "n64":"Nintendo 64", "gba":"GameBoy Advance", "gb":"GameBoy",\
-    "gbc":"GameBoy Color", "fds":"Famicom Disk System", "virtualboy":"Virtual Boy",\
-    "gamecube":"GameCube", "wii":"Wii",
-    # Sega (Master System, Mega Drive, 32X, Mega CD)
-    "sg1000":"SG-1000", "mastersystem":TXT[15], "megadrive":TXT[16], "gamegear":"Game Gear",\
-    "sega32x":TXT[17], "segacd":TXT[18], "dreamcast":"Dreamcast",
-    # Arcade
-    "neogeo":"Neo-Geo", "mame":"MAME-libretro", "fba":"FinalBurn Alpha",\
-    "fba_libretro":"FinalBurn Alpha libretro", "advancemame":"Advance MAME",\
-    "daphne":"Daphne",
-    # Computers
-    "msx":"MSX", "msx1":"MSX1", "msx2":"MSX2", "amiga600":"Amiga 600", "amstradcpc":"Amstrad CPC",\
-    "apple2":"Apple II", "atarist":"Atari ST", "zxspectrum":"ZX Spectrum", "o2em":"Odyssey 2",\
-    "zx81":"Sinclair ZX81", "dos":"MS-DOS", "c64":"Commodore 64", "amiga1200":"Amiga 1200",\
-    "x68000":"Sharp X68000",\
-    # Other (#PC-Engine, PC-Engine CD, Image Viewer)
-    "ngp":"Neo-Geo Pocket", "ngpc":"Neo-Geo Pocket Color", "gw":"Game and Watch",\
-    "vectrex":"Vectrex", "lynx":"Atari Lynx", "lutro":"Lutro", "wswan":"WonderSwan",\
-    "wswanc":"WonderSwan Color", "pcengine":TXT[19], "pcenginecd":TXT[20],\
-    "supergrafx":"SuperGrafx", "atari2600":"Atari 2600", "atari7800":"Atari 7800",\
-    "prboom":"PrBoom", "psx":"PlayStation", "cavestory":"Cave Story", "scummvm":"ScummVM",\
-    "colecovision":"ColecoVision", "psp":"PSP", "kodi":"Kodi", "moonlight":"Moonlight",\
-    "thomson":"Thomson TO8","imageviewer":TXT[14],
+    "amiga1200":"Amiga 1200", "amiga600":"Amiga 600", "amstradcpc":"Amstrad CPC",\
+    "apple2":"Apple II", "atari2600":"Atari 2600", "atari5200":"Atari 5200",\
+    "atari7800":"Atari 7800", "atari800":"Atari 800", "atarist":"Atari ST",\
+    "c64":"Commodore 64", "cavestory":"Cave Story", "channelf":"Fairchild Channel F",\
+    "colecovision":"ColecoVision", "daphne":"Daphne", "dos":"MS-DOS", "dreamcast":"Dreamcast",\
+    "fba":"FinalBurn Alpha", "fba_libretro":"FinalBurn Alpha libretro",\
+    "fds":"Famicom Disk System", "gamegear":"Game Gear", "gb":"GameBoy",\
+    "gba":"GameBoy Advance", "gbc":"GameBoy Color", "gw":"Game and Watch","imageviewer":TXT[14],\
+    "intellivision":"Intellivision", "lutro":"Lutro", "lynx":"Atari Lynx",\
+    "mame":"Arcade", "mastersystem":TXT[15], "megadrive":TXT[16], "moonlight":"Moonlight",\
+    "msx":"MSX", "msx1":"MSX1", "msx2":"MSX2", "n64":"Nintendo 64",  "neogeo":"Neo-Geo",\
+    "nes":TXT[22], "ngp":"Neo-Geo Pocket", "ngpc":"Neo-Geo Pocket Color", \
+    "odyssey2":"Odyssey²", "pcengine":TXT[19], "pcenginecd":TXT[20], "pokemini":"Pokémon Mini",\
+    "prboom":"PrBoom", "psp":"PSP", "psx":"PlayStation", "satellaview":"Satellaview",\
+    "scummvm":"ScummVM", "sega32x":TXT[17], "segacd":TXT[18], "sg1000":"SG-1000", "snes":TXT[21],\
+    "sufami":"Sufami Turbo", "supergrafx":"SuperGrafx", "thomson":"Thomson TO8",\
+    "vectrex":"Vectrex", "virtualboy":"Virtual Boy", "wswan":"WonderSwan",\
+    "wswanc":"WonderSwan Color", "x68000":"Sharp X68000", "zx81":"Sinclair ZX81",\
+    "zxspectrum":"ZX Spectrum", "kodi":"Kodi",
     }
 
 #draw icons not existing in [a-z], max 8
