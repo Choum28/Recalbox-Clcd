@@ -57,7 +57,7 @@ class Scroller(object):
         """
         # Just in case a string is passed in, turn it into a list, and split
         # by any linefeed chars:
-        if isinstance(lines, basestring):   
+        if isinstance(lines, str):   
             lines = lines.split("\n")
         elif not isinstance(lines, list):
             raise Exception("Argument passed to lines parameter must be list, instead got: %s"%type(lines))

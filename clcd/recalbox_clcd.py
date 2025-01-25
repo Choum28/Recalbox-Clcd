@@ -55,7 +55,7 @@ def run_cmd(cmd):
     """ runs whatever is in the cmd variable in the terminal"""
     cde = Popen(cmd, shell=True, stdout=PIPE)
     output = cde.communicate()[0]
-    return output
+    return output.decode("utf_8")
 
 def get_language():
     """ find the language in recalbox.conf and return it"""
@@ -110,8 +110,10 @@ def get_cpu_speed():
 # useless if HD44780A02, comment or delete
 def conv_ascii(entree):
     """ convert UTF-8 string to ASCII"""
-    entree = entree.decode('utf-8')
-    entree = unicodedata.normalize('NFKD', entree).encode('ASCII', 'ignore')
+    #entree = entree.decode('utf-8')
+    entree = entree.decode('utf-8') if isinstance(entree, bytes) else entree
+    entree = unicodedata.normalize('NFKD', entree).encode('ascii', 'ignore').decode('ascii')
+    #entree = unicodedata.normalize('NFKD', entree).encode('ASCII', 'ignore')
     return entree
 
 def get_version():
@@ -150,7 +152,7 @@ def get_info_gamelist(path_gamelist, systeme):
     [0]name       [1]description    [2]image_path    [3]rating    [4]release date (year)\r
     [5]developer       [6]publisher     [7]genre,       [8]players number  [9] system\n
     return Unknown for missing section, return scrape message if unscraped rom found"""
-    path_gamelist = string.replace(path_gamelist, '&', '&amp;')
+    path_gamelist = path_gamelist.replace('&', '&amp;')
     fic = open("/recalbox/share/roms/"+systeme+"/gamelist.xml", 'r') # Open file
     buf = fic.read()  # Read file into var
     fic.close()  # Close file
@@ -190,21 +192,21 @@ def get_ip_adr():
     if ipaddr == "":
         ipaddr = run_cmd(CMD_ETH).replace("\n", "")
         if ipaddr == "":
-            ipaddr = unichr(0)+unichr(1)+"  "+TXT[1] # Txt disconnected if no lan or wifi ip
+            ipaddr = chr(0)+chr(1)+"  "+TXT[1] # Txt disconnected if no lan or wifi ip
         else:
             if len(ipaddr) == 15:
-                ipaddr = unichr(0)+run_cmd(CMD_ETH)
+                ipaddr = chr(0)+run_cmd(CMD_ETH)
             else:
                 for _ in range(15-len(ipaddr)):
                     space = space + " "
-                ipaddr = unichr(0)+space+run_cmd(CMD_ETH)
+                ipaddr = chr(0)+space+run_cmd(CMD_ETH)
     else:
         if len(ipaddr) == 15:
-            ipaddr = unichr(1)+run_cmd(CMD_WLAN)
+            ipaddr = chr(1)+run_cmd(CMD_WLAN)
         else:
             for _ in range(15-len(ipaddr)):
                 space = space + " "
-            ipaddr = unichr(1)+space+run_cmd(CMD_WLAN)
+            ipaddr = chr(1)+space+run_cmd(CMD_WLAN)
     return ipaddr
 
 # set language
@@ -270,8 +272,8 @@ TXT = [conv_ascii(_) for _ in TXT]
 
 #display Boot message & logo ("text, line, position from left side")
 MYLCD.lcd_display_string("PI STATION "+VERSION[0], 1, 2)
-MYLCD.lcd_display_string(unichr(6)+"   "+unichr(2)+" "+unichr(3)+" "+unichr(4)+\
-                         " "+unichr(5)+"    "+unichr(7), 2)
+MYLCD.lcd_display_string(chr(6)+"   "+chr(2)+" "+chr(3)+" "+chr(4)+\
+                         " "+chr(5)+"    "+chr(7), 2)
 sleep(5) # 5 secdelay
 MYLCD.lcd_clear()
 MYLCD.lcd_display_string("Version "+VERSION[1], 1, 0)
@@ -311,7 +313,7 @@ while 1:
     SEC = 0
     while SEC < 1:
         # show system & rom file information
-        RESULT = run_cmd("ps | grep emulatorlauncher.py | grep -v 'c python' | grep -v grep")
+        RESULT = run_cmd("ps aux | grep emulatorlauncher.py | grep -v 'c python' | grep -v grep")
         if RESULT != "":
             (SYSTEME) = get_txt_betw(RESULT, "-system ", " -rom ", TXT[13])
             (ROM) = get_txt_betw(RESULT, "-rom ", " -emulator ", TXT[13])
